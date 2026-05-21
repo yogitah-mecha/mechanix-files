@@ -5,11 +5,7 @@ class RecentFileState extends Equatable {
   final bool loading;
   final List<FileSystemEntity> fileSystemList;
   final String? error;
-
   final FileStat? fileDetails;
-
-  final bool showHiddenFiles;
-
   final int currentPage;
   final bool hasMorePages;
 
@@ -18,7 +14,6 @@ class RecentFileState extends Equatable {
     this.fileSystemList = const [],
     this.error,
     this.fileDetails,
-    this.showHiddenFiles = false,
     this.currentPage = 1,
     this.hasMorePages = true,
   });
@@ -28,7 +23,6 @@ class RecentFileState extends Equatable {
     List<FileSystemEntity>? fileSystemList,
     String? error,
     FileStat? fileDetails,
-    bool? showHiddenFiles,
     int? currentPage,
     bool? hasMorePages,
   }) {
@@ -37,7 +31,6 @@ class RecentFileState extends Equatable {
       fileSystemList: fileSystemList ?? this.fileSystemList,
       error: error ?? this.error,
       fileDetails: fileDetails ?? this.fileDetails,
-      showHiddenFiles: showHiddenFiles ?? this.showHiddenFiles,
       currentPage: currentPage ?? this.currentPage,
       hasMorePages: hasMorePages ?? this.hasMorePages,
     );

@@ -7,6 +7,7 @@ import 'package:files/core/utils/commons.dart';
 import 'package:files/core/widgets/check_box/circular_checkbox.dart';
 import 'package:files/features/files_explorer/controllers/file_manager.dart';
 import 'package:files/features/files_explorer/controllers/file_manager_controller.dart';
+import 'package:files/features/files_explorer/presentation/commons.dart';
 import 'package:files/features/files_explorer/presentation/file_explorer.dart';
 import 'package:files/features/files_explorer/presentation/single_select_action_menu.dart';
 import 'package:files/features/files_home/data/models/file_item.dart';
@@ -183,11 +184,22 @@ Widget buildListView(
                                 return;
                               }
 
+                              if (isSearching) {
+                                state?.clearSearch();
+                              }
+
                               if (FileManager.isDirectory(entity)) {
                                 await controller.openDirectory(entity);
                                 scrollController.jumpTo(0);
                               } else {
-                                // TODO: open file
+                                handleFileTap(
+                                  context,
+                                  entity,
+                                  entity.path,
+                                  isSelectionMode,
+                                  state,
+                                  controller,
+                                );
                               }
                             },
                           ),

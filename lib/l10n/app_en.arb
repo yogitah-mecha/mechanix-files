@@ -57,5 +57,19 @@
       }
     }
   },
-    "trash" : "Trash"
+  "trash" : "Trash",
+  "enterPdfPassword" : "Enter PDF password",
+  "enterPassword" : "Enter password",
+  "passwordError" : "Password can not be empty",
+  "fileLoadError" : "Failed to load file",
+  "emptyRecentFolderMessage" : "No recent files",
+  "unsupportedFileTypeErrorMessage" : "Unsupported file type",
+  "unsupportedFileTypeErrorMessageWithType": "Files of type \"{fileType}\" are not supported",
+  "@unsupportedFileTypeErrorMessageWithType": {
+    "placeholders": {
+      "fileType": {
+        "type": "String"
+      }
+    }
+  }
 }

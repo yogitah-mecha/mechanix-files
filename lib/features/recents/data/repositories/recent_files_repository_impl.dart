@@ -1,6 +1,4 @@
-import 'package:file/file.dart';
 import 'package:files/core/constants/app_limits.dart';
-import 'package:files/features/files_explorer/controllers/file_manager_controller.dart';
 import 'package:files/core/constants/hive_tables.dart';
 import 'package:files/features/recents/data/models/recent_files.dart';
 import 'package:hive/hive.dart';
@@ -55,80 +53,5 @@ class RecentFilesRepositoryImpl extends RecentFilesRepository {
         await _box().delete(key);
       }
     }
-  }
-
-  @override
-  Future<void> clear() async {
-    await ensureRecentFilesConnected();
-    await _box().clear();
-  }
-
-  @override
-  Future<void> removeRecentFile(List<String> entitiesPath) async {
-    await ensureRecentFilesConnected();
-
-    final box = _box();
-
-    // Convert to Set for fast lookup
-    final pathsToRemove = entitiesPath.toSet();
-
-    final keysToDelete = <dynamic>[];
-
-    for (final key in box.keys) {
-      final file = box.get(key);
-
-      if (file != null && pathsToRemove.contains(file.path)) {
-        keysToDelete.add(key);
-      }
-    }
-
-    if (keysToDelete.isNotEmpty) {
-      await box.deleteAll(keysToDelete);
-    }
-  }
-
-  @override
-  Future<List<FileSystemEntity>> getSortedFiles({
-    required List<FileSystemEntity> files,
-    required SortBy sortBy,
-    required bool ascending,
-  }) async {
-    final sorted = List<FileSystemEntity>.from(files);
-
-    sorted.sort((a, b) {
-      final statA = a.statSync();
-      final statB = b.statSync();
-
-      int result;
-
-      switch (sortBy) {
-        case SortBy.name:
-          result = a.path
-              .split('/')
-              .last
-              .toLowerCase()
-              .compareTo(b.path.split('/').last.toLowerCase());
-          break;
-
-        case SortBy.size:
-          result = statA.size.compareTo(statB.size);
-          break;
-
-        case SortBy.accessedTime:
-          result = statA.accessed.compareTo(statB.accessed);
-          break;
-
-        case SortBy.modTime:
-          result = statA.modified.compareTo(statB.modified);
-          break;
-        case SortBy.type:
-          // TODO: Handle this case.
-          throw UnimplementedError();
-      }
-
-      return ascending ? result : -result;
-    });
-
-    return sorted;
   }
 }

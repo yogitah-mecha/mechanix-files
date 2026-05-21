@@ -47,6 +47,24 @@ dependencies:
   bloc_test: ^10.0.0
   mocktail: ^1.0.5
 
+  video_player: ^2.6.1
+  video_player_elinux:
+    git:
+      url: https://github.com/flutter-elinux/flutter-elinux-plugins.git
+      path: packages/video_player
+      ref: main
+
+  audioplayers: ^6.0.0
+  audioplayers_elinux:
+    git:
+      url: https://github.com/flutter-elinux/flutter-elinux-plugins.git
+      path: packages/audioplayers
+      ref: main
+  photo_view: ^0.15.0
+  flutter_svg: ^2.3.0
+  pdfrx: ^2.4.1
+  flutter_code_editor: ^0.3.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -62,46 +80,7 @@ flutter:
   uses-material-design: true
   generate: true
   assets:
-    - assets/images/back.png
-    - assets/images/arrow.png
-    - assets/images/dots_three_vertical.png
-    - assets/images/file.png
-    - assets/images/fold.png
-    - assets/images/image_file.png
-    - assets/images/pdf.png
-    - assets/images/unfold_dir.png
-    - assets/images/text_file.png
-    - assets/images/audio_file.png
-    - assets/images/video_file.png
-    - assets/images/excel_file.png
-    - assets/images/csv.png
-    - assets/images/archive_file.png
-    - assets/images/recent.png
-    - assets/images/copy.png
-    - assets/images/create_folder.png
-    - assets/images/delete.png
-    - assets/images/eye_slash.png
-    - assets/images/eye.png
-    - assets/images/hard_drive.png
-    - assets/images/home_documents.png
-    - assets/images/home.png
-    - assets/images/info.png
-    - assets/images/move.png
-    - assets/images/rename.png
-    - assets/images/search.png
-    - assets/images/paste.png
-    - assets/images/downloads.png
-    - assets/images/refresh.png
-    - assets/images/code.png
-    - assets/images/duplicate.png
-    - assets/images/lock.png
-    - assets/images/edit.png
-    - assets/images/clear.png
-    - assets/images/check_circle.png
-    - assets/images/doc.png
-    - assets/images/lock_file.png
-    - assets/images/close.png
-    - assets/images/check.png
+    - assets/images/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

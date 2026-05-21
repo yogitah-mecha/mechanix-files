@@ -20,7 +20,6 @@ class RecentFilesBloc extends Bloc<RecentFilesEvent, RecentFileState> {
        ) {
     on<LoadRecentFiles>(_onLoadRecentFiles);
     on<AddToRecentFiles>(_onAddToRecentFiles);
-    on<RemoveRecentEntities>(_onRemoveRecentEntities);
   }
 
   Future<void> _onLoadRecentFiles(
@@ -48,26 +47,5 @@ class RecentFilesBloc extends Bloc<RecentFilesEvent, RecentFileState> {
     Emitter<RecentFileState> emit,
   ) async {
     await recentFilesRepository.addRecentFile(event.path);
-  }
-
-  FutureOr<void> _onRemoveRecentEntities(
-    RemoveRecentEntities event,
-    Emitter<RecentFileState> emit,
-  ) async {
-    emit(state.copyWith(loading: true, error: null));
-    try {
-      final fileSystem = const LocalFileSystem();
-      await recentFilesRepository.removeRecentFile(event.entitiesPath);
-      final recentFiles = await recentFilesRepository.getRecentFiles();
-      final recentFilesList =
-          recentFiles
-              .where((recent) => fileSystem.file(recent.path).existsSync())
-              .map((recent) => fileSystem.file(recent.path))
-              .toList();
-
-      emit(state.copyWith(loading: false, fileSystemList: recentFilesList));
-    } catch (e) {
-      emit(state.copyWith(error: 'Remove failed: $e', loading: false));
-    }
   }
 }

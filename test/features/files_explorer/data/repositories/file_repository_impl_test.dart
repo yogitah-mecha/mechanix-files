@@ -184,5 +184,155 @@ void main() {
 
       expect(result, isEmpty);
     });
+
+    test(
+      'getPaginatedFileSystemList returns empty when directory does not exist',
+      () async {
+        final result = await repo.getPaginatedFileSystemList(path: '/invalid');
+
+        expect(result, isEmpty);
+      },
+    );
+
+    test(
+      'copyEntities replaces existing file when strategy is replace',
+      () async {
+        fs.directory('/dest').createSync(recursive: true);
+
+        fs.file('/src/file.txt')
+          ..createSync(recursive: true)
+          ..writeAsStringSync('new content');
+
+        fs.file('/dest/file.txt')
+          ..createSync(recursive: true)
+          ..writeAsStringSync('old content');
+
+        await repo.copyEntities(
+          ['/src/file.txt'],
+          '/dest',
+          strategy: ConflictResolutionStrategy.replace,
+        );
+
+        expect(fs.file('/dest/file.txt').readAsStringSync(), 'new content');
+      },
+    );
+
+    test(
+      'copyEntities replaces existing directory when strategy is replace',
+      () async {
+        fs.file('/src/folder/new.txt').createSync(recursive: true);
+
+        fs.file('/dest/folder/old.txt').createSync(recursive: true);
+
+        await repo.copyEntities(
+          ['/src/folder'],
+          '/dest',
+          strategy: ConflictResolutionStrategy.replace,
+        );
+
+        expect(fs.file('/dest/folder/new.txt').existsSync(), true);
+        expect(fs.file('/dest/folder/old.txt').existsSync(), false);
+      },
+    );
+
+    test('copyEntities handles nested directories recursively', () async {
+      fs.file('/src/a/b/c/file.txt').createSync(recursive: true);
+
+      fs.directory('/dest').createSync(recursive: true);
+
+      await repo.copyEntities(['/src/a'], '/dest');
+
+      expect(fs.file('/dest/a/b/c/file.txt').existsSync(), true);
+    });
+
+    test(
+      'moveEntities replaces existing file when strategy is replace',
+      () async {
+        fs.file('/src/file.txt')
+          ..createSync(recursive: true)
+          ..writeAsStringSync('source');
+
+        fs.file('/dest/file.txt')
+          ..createSync(recursive: true)
+          ..writeAsStringSync('destination');
+
+        await repo.moveEntities(
+          ['/src/file.txt'],
+          '/dest',
+          strategy: ConflictResolutionStrategy.replace,
+        );
+
+        expect(fs.file('/dest/file.txt').readAsStringSync(), 'source');
+        expect(fs.file('/src/file.txt').existsSync(), false);
+      },
+    );
+
+    test(
+      'moveEntities replaces existing directory when strategy is replace',
+      () async {
+        fs.file('/src/folder/new.txt').createSync(recursive: true);
+
+        fs.file('/dest/folder/old.txt').createSync(recursive: true);
+
+        await repo.moveEntities(
+          ['/src/folder'],
+          '/dest',
+          strategy: ConflictResolutionStrategy.replace,
+        );
+
+        expect(fs.file('/dest/folder/new.txt').existsSync(), true);
+        expect(fs.file('/dest/folder/old.txt').existsSync(), false);
+        expect(fs.directory('/src/folder').existsSync(), false);
+      },
+    );
+
+    test('getFileDetails returns directory stat', () async {
+      fs.directory('/root/test').createSync(recursive: true);
+
+      final stat = await repo.getFileDetails('/root/test');
+
+      expect(stat.type, FileSystemEntityType.directory);
+    });
+
+    test('entityExists returns true for existing directory', () async {
+      fs.directory('/folder').createSync(recursive: true);
+
+      final exists = await repo.entityExists('/folder');
+
+      expect(exists, true);
+    });
+
+    test('searchFiles finds matching directories', () async {
+      fs.directory('/root/test_folder').createSync(recursive: true);
+
+      final result = await repo.searchFiles('/root', 'test');
+
+      expect(result.length, 1);
+      expect(p.basename(result.first.path), 'test_folder');
+    });
+
+    test('searchFiles is case insensitive', () async {
+      fs.file('/root/TestFile.txt').createSync(recursive: true);
+
+      final result = await repo.searchFiles('/root', 'testfile');
+
+      expect(result.length, 1);
+    });
+
+    test('searchFiles searches nested directories within max depth', () async {
+      fs.file('/root/a/b/file.txt').createSync(recursive: true);
+
+      final result = await repo.searchFiles('/root', 'file');
+
+      expect(result.length, 1);
+    });
+
+    test('createFolder does not fail if folder already exists', () async {
+      fs.directory('/root/test').createSync(recursive: true);
+
+      await repo.createFolder('/root', 'test');
+
+      expect(fs.directory('/root/test').existsSync(), true);
+    });
   });
 }

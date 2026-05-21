@@ -14,6 +14,7 @@ import 'package:files/features/files_explorer/presentation/bottom_bar_widgets.da
 import 'package:files/features/files_explorer/presentation/breadcrumbs.dart';
 import 'package:files/features/files_explorer/presentation/list_view.dart';
 import 'package:files/features/files_explorer/presentation/paste_handler.dart';
+import 'package:files/features/files_explorer/presentation/search_dialog.dart';
 import 'package:files/features/files_home/data/models/file_item.dart';
 import 'package:files/features/trash/bloc/trash_bloc.dart';
 import 'package:files/features/trash/bloc/trash_event.dart';
@@ -71,6 +72,8 @@ class FileExplorerPageState extends State<FileExplorerPage> {
   );
   final ValueNotifier<String?> selectedItemPathNotifier = ValueNotifier(null);
   final ScrollController breadcrumbScrollController = ScrollController();
+  final searchOverlayController = SearchOverlayController();
+  final _focusNode = FocusNode();
 
   @override
   void initState() {
@@ -118,10 +121,15 @@ class FileExplorerPageState extends State<FileExplorerPage> {
       });
     });
 
-    searchQuery.addListener(() {
-      if (searchQuery.value.isEmpty) {
-        reload(); // Reload when user clears search
-      }
+    _openKeyboardAfterLoad();
+  }
+
+  void _openKeyboardAfterLoad() {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      if (!mounted) return;
+
+      await Future.delayed(const Duration(milliseconds: 300));
+      _focusNode.requestFocus();
     });
   }
 
@@ -142,13 +150,14 @@ class FileExplorerPageState extends State<FileExplorerPage> {
   @override
   void dispose() {
     searchQuery.dispose();
-    // searchOverlayController.dispose();
+    searchOverlayController.dispose();
+
     _scrollController.removeListener(_onScroll);
     _scrollController.dispose();
-    // _fabController.dispose();
-    // _focusNode.dispose();
-    super.dispose();
+
     breadcrumbScrollController.dispose();
+
+    super.dispose();
   }
 
   Future<void> handleBack() async {
@@ -431,7 +440,38 @@ class FileExplorerPageState extends State<FileExplorerPage> {
   }
 
   void onSearchPressed() {
-    // TODO: Implement search functionality
+    setState(() {
+      isSearching = true;
+    });
+
+    searchOverlayController.show(
+      context,
+      searchQuery: searchQuery,
+      onClear: () {
+        clearSearch();
+      },
+
+      onSearch: (query) {
+        if (query.trim().length > 2) {
+          controller.search(query.trim());
+        } else if (query.isEmpty) {
+          controller.reload();
+        }
+      },
+    );
+  }
+
+  void clearSearch() {
+    setState(() {
+      isSearching = false;
+      searchQuery.value = '';
+    });
+
+    // safely remove overlay if still mounted
+    searchOverlayController.hide();
+
+    // Reload directory content when clearing search
+    controller.search('');
   }
 
   void toggleBottomPanel(ExplorerBottomPanel panel) {
@@ -626,7 +666,6 @@ class FileExplorerPageState extends State<FileExplorerPage> {
 
   Future<String?> showRenameSheet({required String initialName}) async {
     final controllerText = TextEditingController(text: initialName);
-    final focusNode = FocusNode();
 
     final oldPath = p.join(controller.getCurrentPath, initialName);
     controller.markNewFolder(oldPath);
@@ -648,11 +687,9 @@ class FileExplorerPageState extends State<FileExplorerPage> {
                 bottom: MediaQuery.of(ctx).viewInsets.bottom,
               ),
               child: Container(
-                decoration: BoxDecoration(
-                  color: Theme.of(ctx).colorScheme.surface,
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(16),
-                  ),
+                decoration: const BoxDecoration(
+                  color: AppColors.backgroundVariantDark,
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
                 ),
                 padding: const EdgeInsets.only(left: 16, right: 16),
                 child: Column(
@@ -699,8 +736,8 @@ class FileExplorerPageState extends State<FileExplorerPage> {
 
                     TextField(
                       controller: controllerText,
-                      focusNode: focusNode,
-                      autofocus: true,
+                      focusNode: _focusNode,
+                      autofocus: false,
                       onChanged: (v) {
                         setState(() {});
                         controller.setLiveRename(oldPath, v);

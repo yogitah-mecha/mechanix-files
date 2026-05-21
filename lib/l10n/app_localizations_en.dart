@@ -145,4 +145,27 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get trash => 'Trash';
+
+  @override
+  String get enterPdfPassword => 'Enter PDF password';
+
+  @override
+  String get enterPassword => 'Enter password';
+
+  @override
+  String get passwordError => 'Password can not be empty';
+
+  @override
+  String get fileLoadError => 'Failed to load file';
+
+  @override
+  String get emptyRecentFolderMessage => 'No recent files';
+
+  @override
+  String get unsupportedFileTypeErrorMessage => 'Unsupported file type';
+
+  @override
+  String unsupportedFileTypeErrorMessageWithType(String fileType) {
+    return 'Files of type \"$fileType\" are not supported';
+  }
 }

@@ -39,4 +39,6 @@ class FileIcons {
   static const String clear = 'assets/images/clear.png';
   static const String close = 'assets/images/close.png';
   static const String check = 'assets/images/check.png';
+  static const String musicNote = 'assets/images/music_note.png';
+  static const String arrowDown = 'assets/images/arrow_down.png';
 }

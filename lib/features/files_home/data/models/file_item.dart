@@ -57,15 +57,7 @@ const textFileTypes = [
   '.txt',
 ];
 
-const audioFileTypes = [
-  '.mp3',
-  '.wav',
-  '.flac',
-  '.m4a',
-  '.aac',
-  '.ogg',
-  '.opus',
-];
+const audioFileTypes = ['.mp3', '.wav', '.flac', '.m4a', '.ogg', '.opus'];
 
 const videoFileTypes = ['.mp4', '.mkv', '.avi', '.mov', '.wmv'];
 

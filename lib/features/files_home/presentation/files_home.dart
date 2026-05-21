@@ -10,6 +10,7 @@ import 'package:files/features/files_explorer/presentation/file_explorer.dart';
 import 'package:files/features/files_explorer/presentation/paste_menu.dart';
 import 'package:files/features/files_home/data/models/file_item.dart';
 import 'package:files/features/files_home/presentation/bottom_bar_widgets.dart';
+import 'package:files/features/recents/presentation/recent_files.dart';
 import 'package:files/features/trash/presentation/trash.dart';
 import 'package:files/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -260,14 +261,14 @@ class FileHomePageState extends State<FileHomePage> {
 
   void onTap(BuildContext context, String path, String title) {
     if (path == recentDir) {
-      // TODO: Navigate to recent files page
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => const RecentFilesExplorerPage()),
+      );
     } else {
       Navigator.push(
         context,
-        MaterialPageRoute(
-          builder: (_) => FileExplorerPage(startPath: path),
-          //   ),
-        ),
+        MaterialPageRoute(builder: (_) => FileExplorerPage(startPath: path)),
       );
     }
   }

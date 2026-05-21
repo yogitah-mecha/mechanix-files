@@ -321,6 +321,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Trash'**
   String get trash;
+
+  /// No description provided for @enterPdfPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter PDF password'**
+  String get enterPdfPassword;
+
+  /// No description provided for @enterPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter password'**
+  String get enterPassword;
+
+  /// No description provided for @passwordError.
+  ///
+  /// In en, this message translates to:
+  /// **'Password can not be empty'**
+  String get passwordError;
+
+  /// No description provided for @fileLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load file'**
+  String get fileLoadError;
+
+  /// No description provided for @emptyRecentFolderMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'No recent files'**
+  String get emptyRecentFolderMessage;
+
+  /// No description provided for @unsupportedFileTypeErrorMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Unsupported file type'**
+  String get unsupportedFileTypeErrorMessage;
+
+  /// No description provided for @unsupportedFileTypeErrorMessageWithType.
+  ///
+  /// In en, this message translates to:
+  /// **'Files of type \"{fileType}\" are not supported'**
+  String unsupportedFileTypeErrorMessageWithType(String fileType);
 }
 
 class _AppLocalizationsDelegate
