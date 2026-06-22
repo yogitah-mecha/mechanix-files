@@ -22,7 +22,7 @@ class CustomIconButton extends StatelessWidget {
     required this.onPressed,
     this.enabled = true,
     this.iconSize = 24,
-    this.minSize = 48,
+    this.minSize = 56, //48
     this.padding = const EdgeInsets.all(8),
     this.activeColor,
     this.disabledColor,
