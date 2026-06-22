@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:files/core/theme/app_theme.dart';
+import 'package:mechanix_files/core/theme/app_theme.dart';
 
 class TimeBubble extends StatelessWidget {
   final String text;

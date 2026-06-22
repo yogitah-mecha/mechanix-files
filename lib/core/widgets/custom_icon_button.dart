@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:files/core/theme/app_theme.dart';
+import 'package:mechanix_files/core/theme/app_theme.dart';
 
 class CustomIconButton extends StatelessWidget {
   final Widget icon;
@@ -22,7 +22,7 @@ class CustomIconButton extends StatelessWidget {
     required this.onPressed,
     this.enabled = true,
     this.iconSize = 24,
-    this.minSize = 56, //48
+    this.minSize = 48,
     this.padding = const EdgeInsets.all(8),
     this.activeColor,
     this.disabledColor,
@@ -82,7 +82,6 @@ class CustomIconButton extends StatelessWidget {
       icon: Icon(iconData, size: iconSize),
     );
   }
-
   @override
   Widget build(BuildContext context) {
     final color =
@@ -90,25 +89,25 @@ class CustomIconButton extends StatelessWidget {
             ? (activeColor ?? AppColors.onSurface)
             : (disabledColor ?? AppColors.onSurfaceVariantDark);
 
-    return IconButton(
-      onPressed: enabled ? onPressed : null,
-      padding: EdgeInsets.zero,
-      constraints: BoxConstraints(minWidth: minSize, minHeight: minSize),
-      icon: Container(
-        width: minSize,
-        height: minSize,
-        alignment: Alignment.center,
-
-        // DEBUG BORDER
-        decoration: BoxDecoration(
-          border: Border.all(color: AppColors.onSurfaceVariantDark, width: 1),
-        ),
-
-        child: IconTheme(
-          data: IconThemeData(color: color, size: iconSize),
-          child: ColorFiltered(
-            colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
-            child: icon,
+    return SizedBox(
+      width: minSize,
+      height: minSize,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: enabled ? onPressed : null,
+          borderRadius: BorderRadius.circular(8),
+          child: Container(
+            decoration: BoxDecoration(
+              color: backgroundColor,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            padding: padding,
+            alignment: Alignment.center,
+            child: ColorFiltered(
+              colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+              child: SizedBox(width: iconSize, height: iconSize, child: icon),
+            ),
           ),
         ),
       ),

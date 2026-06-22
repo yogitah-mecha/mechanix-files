@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:file/file.dart';
 import 'package:file/local.dart';
-import 'package:files/core/utils/app_file_system.dart';
-import 'package:files/features/trash/services/trash_path_service.dart';
-import 'package:files/features/trash/data/repositories/trash_repository.dart';
+import 'package:mechanix_files/core/utils/app_file_system.dart';
+import 'package:mechanix_files/features/trash/services/trash_path_service.dart';
+import 'package:mechanix_files/features/trash/data/repositories/trash_repository.dart';
 
 class TrashRepositoryImpl implements TrashRepository {
   final FileSystem _fs;
@@ -23,9 +23,10 @@ class TrashRepositoryImpl implements TrashRepository {
       for (final path in paths) {
         final isDir = _fs.directory(path).existsSync();
         final isLink = _fs.link(path).existsSync();
-        final entity = isLink
-            ? _fs.link(path)
-            : (isDir ? _fs.directory(path) : _fs.file(path));
+        final entity =
+            isLink
+                ? _fs.link(path)
+                : (isDir ? _fs.directory(path) : _fs.file(path));
         if (entity.existsSync()) {
           final targetPath =
               '${TrashPathsService.trashFilesDir.path}/${_fs.path.basename(path)}';

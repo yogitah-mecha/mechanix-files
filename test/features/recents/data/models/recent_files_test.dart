@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:files/features/recents/data/models/recent_files.dart';
+import 'package:mechanix_files/features/recents/data/models/recent_files.dart';
 
 void main() {
   group('RecentFile model', () {

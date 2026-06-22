@@ -1,6 +1,6 @@
 import 'package:file/memory.dart';
-import 'package:files/features/trash/data/repositories/trash_repository_impl.dart';
-import 'package:files/features/trash/services/trash_path_service.dart';
+import 'package:mechanix_files/features/trash/data/repositories/trash_repository_impl.dart';
+import 'package:mechanix_files/features/trash/services/trash_path_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

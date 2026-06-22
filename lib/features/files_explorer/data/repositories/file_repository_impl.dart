@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:file/file.dart';
-import 'package:files/core/constants/app_constants.dart';
-import 'package:files/core/utils/app_file_system.dart';
-import 'package:files/core/utils/app_logger.dart';
-import 'package:files/features/files_explorer/data/models/conflict_resolution_strategy.dart';
-import 'package:files/features/files_explorer/data/repositories/file_repository.dart';
+import 'package:mechanix_files/core/constants/app_constants.dart';
+import 'package:mechanix_files/core/utils/app_file_system.dart';
+import 'package:mechanix_files/core/utils/app_logger.dart';
+import 'package:mechanix_files/features/files_explorer/data/models/conflict_resolution_strategy.dart';
+import 'package:mechanix_files/features/files_explorer/data/repositories/file_repository.dart';
 import 'package:path/path.dart' as p;
 
 class FileRepositoryImpl implements FileRepository {

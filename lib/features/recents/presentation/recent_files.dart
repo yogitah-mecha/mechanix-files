@@ -1,12 +1,12 @@
-import 'package:files/core/constants/icons.dart';
-import 'package:files/core/widgets/bottom_bar/bottom_bar.dart';
-import 'package:files/core/widgets/custom_icon_button.dart';
-import 'package:files/features/files_explorer/presentation/commons.dart';
-import 'package:files/features/recents/blocs/recent_file_event.dart';
-import 'package:files/features/recents/blocs/recent_file_state.dart';
-import 'package:files/features/recents/blocs/recent_files_bloc.dart';
-import 'package:files/features/recents/presentation/list_view.dart';
-import 'package:files/l10n/app_localizations.dart';
+import 'package:mechanix_files/core/constants/icons.dart';
+import 'package:mechanix_files/core/widgets/bottom_bar/bottom_bar.dart';
+import 'package:mechanix_files/core/widgets/custom_icon_button.dart';
+import 'package:mechanix_files/features/files_explorer/presentation/commons.dart';
+import 'package:mechanix_files/features/recents/blocs/recent_file_event.dart';
+import 'package:mechanix_files/features/recents/blocs/recent_file_state.dart';
+import 'package:mechanix_files/features/recents/blocs/recent_files_bloc.dart';
+import 'package:mechanix_files/features/recents/presentation/list_view.dart';
+import 'package:mechanix_files/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

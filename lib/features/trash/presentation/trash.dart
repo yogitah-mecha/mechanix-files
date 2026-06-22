@@ -1,17 +1,17 @@
 import 'dart:async';
 
-import 'package:files/core/utils/app_file_system.dart';
-import 'package:files/core/constants/icons.dart';
-import 'package:files/core/theme/app_theme.dart';
-import 'package:files/core/widgets/bottom_bar/bottom_bar.dart';
-import 'package:files/core/widgets/custom_icon_button.dart';
-import 'package:files/core/widgets/toast/custom_app_toast.dart';
-import 'package:files/features/files_explorer/blocs/file_boc.dart';
-import 'package:files/features/files_explorer/blocs/file_state.dart';
-import 'package:files/features/files_explorer/controllers/file_manager_controller.dart';
-import 'package:files/features/files_explorer/presentation/breadcrumbs.dart';
-import 'package:files/features/trash/presentation/list_view.dart';
-import 'package:files/features/trash/services/trash_path_service.dart';
+import 'package:mechanix_files/core/utils/app_file_system.dart';
+import 'package:mechanix_files/core/constants/icons.dart';
+import 'package:mechanix_files/core/theme/app_theme.dart';
+import 'package:mechanix_files/core/widgets/bottom_bar/bottom_bar.dart';
+import 'package:mechanix_files/core/widgets/custom_icon_button.dart';
+import 'package:mechanix_files/core/widgets/toast/custom_app_toast.dart';
+import 'package:mechanix_files/features/files_explorer/blocs/file_boc.dart';
+import 'package:mechanix_files/features/files_explorer/blocs/file_state.dart';
+import 'package:mechanix_files/features/files_explorer/controllers/file_manager_controller.dart';
+import 'package:mechanix_files/features/files_explorer/presentation/breadcrumbs.dart';
+import 'package:mechanix_files/features/trash/presentation/list_view.dart';
+import 'package:mechanix_files/features/trash/services/trash_path_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

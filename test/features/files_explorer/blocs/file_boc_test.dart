@@ -1,13 +1,13 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:file/file.dart';
-import 'package:files/features/files_explorer/blocs/file_boc.dart';
-import 'package:files/features/files_explorer/blocs/file_event.dart';
-import 'package:files/features/files_explorer/blocs/file_state.dart';
-import 'package:files/features/files_explorer/controllers/file_manager_controller.dart';
-import 'package:files/features/files_explorer/data/models/app_settings.dart';
-import 'package:files/features/files_explorer/data/models/conflict_resolution_strategy.dart';
-import 'package:files/features/files_explorer/data/repositories/app_settings_repository.dart';
-import 'package:files/features/files_explorer/data/repositories/file_repository.dart';
+import 'package:mechanix_files/features/files_explorer/blocs/file_boc.dart';
+import 'package:mechanix_files/features/files_explorer/blocs/file_event.dart';
+import 'package:mechanix_files/features/files_explorer/blocs/file_state.dart';
+import 'package:mechanix_files/features/files_explorer/controllers/file_manager_controller.dart';
+import 'package:mechanix_files/features/files_explorer/data/models/app_settings.dart';
+import 'package:mechanix_files/features/files_explorer/data/models/conflict_resolution_strategy.dart';
+import 'package:mechanix_files/features/files_explorer/data/repositories/app_settings_repository.dart';
+import 'package:mechanix_files/features/files_explorer/data/repositories/file_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

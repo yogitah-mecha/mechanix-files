@@ -1,7 +1,7 @@
-import 'package:files/features/trash/bloc/trash_event.dart';
-import 'package:files/features/trash/bloc/trash_state.dart';
+import 'package:mechanix_files/features/trash/bloc/trash_event.dart';
+import 'package:mechanix_files/features/trash/bloc/trash_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:files/features/trash/data/repositories/trash_repository.dart';
+import 'package:mechanix_files/features/trash/data/repositories/trash_repository.dart';
 
 class TrashBloc extends Bloc<TrashEvent, TrashState> {
   final TrashRepository trashRepository;

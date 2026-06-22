@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
-import 'package:files/core/utils/app_file_system.dart';
-import 'package:files/l10n/app_localizations.dart';
+import 'package:mechanix_files/core/utils/app_file_system.dart';
+import 'package:mechanix_files/l10n/app_localizations.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:path/path.dart' as p;

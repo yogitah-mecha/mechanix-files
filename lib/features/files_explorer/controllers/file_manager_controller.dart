@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:io' hide File, Directory, FileSystemEntity, FileSystemException;
 import 'package:file/file.dart';
-import 'package:files/core/utils/app_file_system.dart';
-import 'package:files/core/utils/app_logger.dart';
+import 'package:mechanix_files/core/utils/app_file_system.dart';
+import 'package:mechanix_files/core/utils/app_logger.dart';
 import 'package:flutter/widgets.dart';
 import 'package:path/path.dart' as p;
 

@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:files/core/widgets/toast/toast_view.dart';
+import 'package:mechanix_files/core/widgets/toast/toast_view.dart';
 import 'package:flutter/material.dart';
 
 enum ToastType { success, error, info }

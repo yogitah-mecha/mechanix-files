@@ -1,7 +1,7 @@
-import 'package:files/core/constants/app_limits.dart';
-import 'package:files/core/utils/app_logger.dart';
-import 'package:files/features/files_explorer/services/hive_service.dart';
-import 'package:files/features/recents/data/models/recent_files.dart';
+import 'package:mechanix_files/core/constants/app_limits.dart';
+import 'package:mechanix_files/core/utils/app_logger.dart';
+import 'package:mechanix_files/features/files_explorer/services/hive_service.dart';
+import 'package:mechanix_files/features/recents/data/models/recent_files.dart';
 import 'package:hive/hive.dart';
 import 'recent_files_repository.dart';
 

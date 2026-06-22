@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'dart:ui';
 
-import 'package:files/core/theme/app_theme.dart';
-import 'package:files/features/files_home/data/models/file_item.dart';
+import 'package:mechanix_files/core/theme/app_theme.dart';
+import 'package:mechanix_files/features/files_home/data/models/file_item.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart' as p;
 

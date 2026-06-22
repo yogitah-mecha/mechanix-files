@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:bloc_test/bloc_test.dart';
-import 'package:files/features/trash/bloc/trash_bloc.dart';
-import 'package:files/features/trash/bloc/trash_event.dart';
-import 'package:files/features/trash/bloc/trash_state.dart';
-import 'package:files/features/trash/data/repositories/trash_repository.dart';
+import 'package:mechanix_files/features/trash/bloc/trash_bloc.dart';
+import 'package:mechanix_files/features/trash/bloc/trash_event.dart';
+import 'package:mechanix_files/features/trash/bloc/trash_state.dart';
+import 'package:mechanix_files/features/trash/data/repositories/trash_repository.dart';
 import 'package:file/file.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:flutter_test/flutter_test.dart';

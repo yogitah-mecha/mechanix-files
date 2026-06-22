@@ -1,6 +1,6 @@
 import 'dart:io' as io;
 
-import 'package:files/core/constants/icons.dart';
+import 'package:mechanix_files/core/constants/icons.dart';
 
 class FileItem {
   final String name;

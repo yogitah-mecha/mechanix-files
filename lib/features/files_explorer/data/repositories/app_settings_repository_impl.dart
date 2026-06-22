@@ -1,7 +1,7 @@
-import 'package:files/core/utils/app_logger.dart';
-import 'package:files/features/files_explorer/data/repositories/app_settings_repository.dart';
-import 'package:files/features/files_explorer/data/models/app_settings.dart';
-import 'package:files/features/files_explorer/services/hive_service.dart';
+import 'package:mechanix_files/core/utils/app_logger.dart';
+import 'package:mechanix_files/features/files_explorer/data/repositories/app_settings_repository.dart';
+import 'package:mechanix_files/features/files_explorer/data/models/app_settings.dart';
+import 'package:mechanix_files/features/files_explorer/services/hive_service.dart';
 import 'package:hive/hive.dart';
 
 class AppSettingsRepositoryImpl extends AppSettingsRepository {

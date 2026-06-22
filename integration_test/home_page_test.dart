@@ -1,16 +1,16 @@
-import 'package:files/core/utils/app_file_system.dart';
-import 'package:files/main.dart' as app;
+import 'package:mechanix_files/core/utils/app_file_system.dart';
+import 'package:mechanix_files/main.dart' as app;
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-import 'package:files/core/constants/icons.dart';
-import 'package:files/core/constants/path_constants.dart';
-import 'package:files/core/widgets/custom_icon_button.dart';
-import 'package:files/features/files_explorer/presentation/file_explorer.dart';
-import 'package:files/features/recents/presentation/recent_files.dart';
-import 'package:files/features/trash/presentation/trash.dart';
-import 'package:files/features/files_home/presentation/files_home.dart';
-import 'package:files/l10n/app_localizations.dart';
+import 'package:mechanix_files/core/constants/icons.dart';
+import 'package:mechanix_files/core/constants/path_constants.dart';
+import 'package:mechanix_files/core/widgets/custom_icon_button.dart';
+import 'package:mechanix_files/features/files_explorer/presentation/file_explorer.dart';
+import 'package:mechanix_files/features/recents/presentation/recent_files.dart';
+import 'package:mechanix_files/features/trash/presentation/trash.dart';
+import 'package:mechanix_files/features/files_home/presentation/files_home.dart';
+import 'package:mechanix_files/l10n/app_localizations.dart';
 import 'package:file/memory.dart';
 
 void main() {

@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:files/features/files_explorer/blocs/file_event.dart';
-import 'package:files/features/files_explorer/blocs/file_state.dart';
-import 'package:files/features/files_explorer/data/models/conflict_resolution_strategy.dart';
-import 'package:files/features/files_explorer/data/repositories/app_settings_repository.dart';
-import 'package:files/features/files_explorer/data/repositories/file_repository.dart';
+import 'package:mechanix_files/features/files_explorer/blocs/file_event.dart';
+import 'package:mechanix_files/features/files_explorer/blocs/file_state.dart';
+import 'package:mechanix_files/features/files_explorer/data/models/conflict_resolution_strategy.dart';
+import 'package:mechanix_files/features/files_explorer/data/repositories/app_settings_repository.dart';
+import 'package:mechanix_files/features/files_explorer/data/repositories/file_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path/path.dart' as p;
 

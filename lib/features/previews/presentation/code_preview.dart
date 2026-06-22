@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:files/core/utils/app_file_system.dart';
-import 'package:files/core/theme/app_theme.dart';
-import 'package:files/features/files_explorer/presentation/file_explorer.dart';
-import 'package:files/features/previews/presentation/preview_action_bar.dart';
-import 'package:files/l10n/app_localizations.dart';
+import 'package:mechanix_files/core/utils/app_file_system.dart';
+import 'package:mechanix_files/core/theme/app_theme.dart';
+import 'package:mechanix_files/features/files_explorer/presentation/file_explorer.dart';
+import 'package:mechanix_files/features/previews/presentation/preview_action_bar.dart';
+import 'package:mechanix_files/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_code_editor/flutter_code_editor.dart';
 

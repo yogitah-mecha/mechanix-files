@@ -1,29 +1,29 @@
 import 'dart:io';
 
-import 'package:files/core/constants/app_routes.dart';
-import 'package:files/core/theme/app_theme.dart';
-import 'package:files/features/files_explorer/blocs/file_boc.dart';
-import 'package:files/features/files_explorer/blocs/file_event.dart';
-import 'package:files/features/files_explorer/data/models/app_settings.dart';
-import 'package:files/features/files_explorer/data/repositories/app_settings_repository.dart';
-import 'package:files/features/files_explorer/data/repositories/app_settings_repository_impl.dart';
-import 'package:files/features/files_explorer/data/repositories/file_repository.dart';
-import 'package:files/features/files_explorer/data/repositories/file_repository_impl.dart';
-import 'package:files/features/files_home/presentation/files_home.dart';
-import 'package:files/features/recents/blocs/recent_file_event.dart';
-import 'package:files/features/recents/blocs/recent_files_bloc.dart';
-import 'package:files/features/recents/data/models/recent_files.dart';
-import 'package:files/features/recents/data/repositories/recent_files_repository.dart';
-import 'package:files/features/recents/data/repositories/recent_files_repository_impl.dart';
-import 'package:files/features/trash/bloc/trash_bloc.dart';
-import 'package:files/features/trash/data/repositories/trash_repository.dart';
-import 'package:files/features/trash/data/repositories/trash_repository_impl.dart';
-import 'package:files/l10n/app_localizations.dart';
+import 'package:mechanix_files/core/constants/app_routes.dart';
+import 'package:mechanix_files/core/theme/app_theme.dart';
+import 'package:mechanix_files/features/files_explorer/blocs/file_boc.dart';
+import 'package:mechanix_files/features/files_explorer/blocs/file_event.dart';
+import 'package:mechanix_files/features/files_explorer/data/models/app_settings.dart';
+import 'package:mechanix_files/features/files_explorer/data/repositories/app_settings_repository.dart';
+import 'package:mechanix_files/features/files_explorer/data/repositories/app_settings_repository_impl.dart';
+import 'package:mechanix_files/features/files_explorer/data/repositories/file_repository.dart';
+import 'package:mechanix_files/features/files_explorer/data/repositories/file_repository_impl.dart';
+import 'package:mechanix_files/features/files_home/presentation/files_home.dart';
+import 'package:mechanix_files/features/recents/blocs/recent_file_event.dart';
+import 'package:mechanix_files/features/recents/blocs/recent_files_bloc.dart';
+import 'package:mechanix_files/features/recents/data/models/recent_files.dart';
+import 'package:mechanix_files/features/recents/data/repositories/recent_files_repository.dart';
+import 'package:mechanix_files/features/recents/data/repositories/recent_files_repository_impl.dart';
+import 'package:mechanix_files/features/trash/bloc/trash_bloc.dart';
+import 'package:mechanix_files/features/trash/data/repositories/trash_repository.dart';
+import 'package:mechanix_files/features/trash/data/repositories/trash_repository_impl.dart';
+import 'package:mechanix_files/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 
-import 'package:files/core/utils/app_file_system.dart';
+import 'package:mechanix_files/core/utils/app_file_system.dart';
 
 void main() {
   final openPath = _parseOpenPath();

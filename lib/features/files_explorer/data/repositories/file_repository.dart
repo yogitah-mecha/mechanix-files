@@ -1,5 +1,5 @@
 import 'package:file/file.dart';
-import 'package:files/features/files_explorer/data/models/conflict_resolution_strategy.dart';
+import 'package:mechanix_files/features/files_explorer/data/models/conflict_resolution_strategy.dart';
 
 abstract class FileRepository {
   Future<void> createFolder(String path, String folderName);

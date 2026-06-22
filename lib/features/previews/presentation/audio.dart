@@ -1,14 +1,14 @@
 import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
-import 'package:files/core/widgets/custom_icon_button.dart';
-import 'package:files/features/previews/presentation/preview_action_bar.dart';
-import 'package:files/features/previews/presentation/time_bubble.dart';
+import 'package:mechanix_files/core/widgets/custom_icon_button.dart';
+import 'package:mechanix_files/features/previews/presentation/preview_action_bar.dart';
+import 'package:mechanix_files/features/previews/presentation/time_bubble.dart';
 import 'package:flutter/material.dart';
 
-import 'package:files/core/constants/icons.dart';
-import 'package:files/core/theme/app_theme.dart';
-import 'package:files/features/files_explorer/presentation/file_explorer.dart';
+import 'package:mechanix_files/core/constants/icons.dart';
+import 'package:mechanix_files/core/theme/app_theme.dart';
+import 'package:mechanix_files/features/files_explorer/presentation/file_explorer.dart';
 
 class AudioPreview extends StatefulWidget {
   final String filePath;

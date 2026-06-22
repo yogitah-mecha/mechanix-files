@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:files/core/constants/app_limits.dart';
-import 'package:files/features/recents/data/models/recent_files.dart';
-import 'package:files/features/recents/data/repositories/recent_files_repository_impl.dart';
+import 'package:mechanix_files/core/constants/app_limits.dart';
+import 'package:mechanix_files/features/recents/data/models/recent_files.dart';
+import 'package:mechanix_files/features/recents/data/repositories/recent_files_repository_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive/hive.dart';
 

@@ -1,6 +1,6 @@
 import 'dart:io' as io;
-import 'package:files/core/utils/app_file_system.dart';
-import 'package:files/core/utils/app_logger.dart';
+import 'package:mechanix_files/core/utils/app_file_system.dart';
+import 'package:mechanix_files/core/utils/app_logger.dart';
 import 'package:hive/hive.dart';
 
 class HiveService {
@@ -9,7 +9,9 @@ class HiveService {
       final home = io.Platform.environment['HOME'];
       final xdgConfig = io.Platform.environment['XDG_CONFIG_HOME'];
       final baseDir = xdgConfig ?? '$home/.config';
-      final appDir = AppFileSystem.instance.directory('$baseDir/mechanix_files');
+      final appDir = AppFileSystem.instance.directory(
+        '$baseDir/mechanix_files',
+      );
 
       final exists = await appDir.exists();
 

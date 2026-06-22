@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:files/core/theme/app_theme.dart';
-import 'package:files/core/widgets/custom_icon_button.dart';
-import 'package:files/features/files_explorer/presentation/file_explorer.dart';
-import 'package:files/features/previews/presentation/preview_action_bar.dart';
-import 'package:files/features/previews/presentation/time_bubble.dart';
+import 'package:mechanix_files/core/theme/app_theme.dart';
+import 'package:mechanix_files/core/widgets/custom_icon_button.dart';
+import 'package:mechanix_files/features/files_explorer/presentation/file_explorer.dart';
+import 'package:mechanix_files/features/previews/presentation/preview_action_bar.dart';
+import 'package:mechanix_files/features/previews/presentation/time_bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 

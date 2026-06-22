@@ -1,10 +1,10 @@
 import 'dart:ui';
 
-import 'package:files/core/theme/app_theme.dart';
-import 'package:files/core/constants/path_constants.dart';
-import 'package:files/core/utils/app_file_system.dart';
-import 'package:files/features/files_explorer/controllers/file_manager_controller.dart';
-import 'package:files/l10n/app_localizations.dart';
+import 'package:mechanix_files/core/theme/app_theme.dart';
+import 'package:mechanix_files/core/constants/path_constants.dart';
+import 'package:mechanix_files/core/utils/app_file_system.dart';
+import 'package:mechanix_files/features/files_explorer/controllers/file_manager_controller.dart';
+import 'package:mechanix_files/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class ExplorerBreadcrumbs extends StatelessWidget {

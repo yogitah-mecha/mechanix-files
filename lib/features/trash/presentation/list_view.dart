@@ -2,14 +2,14 @@ import 'package:file/file.dart';
 import 'dart:ui';
 
 import 'package:ellipsized_text/ellipsized_text.dart';
-import 'package:files/core/theme/app_theme.dart';
-import 'package:files/core/utils/commons.dart';
-import 'package:files/features/files_explorer/controllers/file_manager.dart';
-import 'package:files/features/files_explorer/controllers/file_manager_controller.dart';
-import 'package:files/features/files_explorer/presentation/file_explorer.dart';
-import 'package:files/features/files_explorer/presentation/single_select_action_menu.dart';
-import 'package:files/features/files_home/data/models/file_item.dart';
-import 'package:files/l10n/app_localizations.dart';
+import 'package:mechanix_files/core/theme/app_theme.dart';
+import 'package:mechanix_files/core/utils/commons.dart';
+import 'package:mechanix_files/features/files_explorer/controllers/file_manager.dart';
+import 'package:mechanix_files/features/files_explorer/controllers/file_manager_controller.dart';
+import 'package:mechanix_files/features/files_explorer/presentation/file_explorer.dart';
+import 'package:mechanix_files/features/files_explorer/presentation/single_select_action_menu.dart';
+import 'package:mechanix_files/features/files_home/data/models/file_item.dart';
+import 'package:mechanix_files/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class TrashListSection extends StatelessWidget {

@@ -1,18 +1,18 @@
 import 'dart:async';
 
-import 'package:files/core/theme/app_theme.dart';
-import 'package:files/core/utils/app_logger.dart';
-import 'package:files/core/widgets/custom_button.dart';
-import 'package:files/core/widgets/middle_ellipsis_text.dart';
-import 'package:files/core/widgets/toast/custom_app_toast.dart';
-import 'package:files/features/files_explorer/blocs/file_boc.dart';
-import 'package:files/features/files_explorer/blocs/file_event.dart';
-import 'package:files/features/files_explorer/blocs/file_state.dart';
-import 'package:files/features/files_explorer/controllers/file_manager_controller.dart';
-import 'package:files/features/files_explorer/data/models/conflict_resolution_strategy.dart';
-import 'package:files/features/files_explorer/presentation/commons.dart';
-import 'package:files/features/files_explorer/presentation/file_explorer.dart';
-import 'package:files/l10n/app_localizations.dart';
+import 'package:mechanix_files/core/theme/app_theme.dart';
+import 'package:mechanix_files/core/utils/app_logger.dart';
+import 'package:mechanix_files/core/widgets/custom_button.dart';
+import 'package:mechanix_files/core/widgets/middle_ellipsis_text.dart';
+import 'package:mechanix_files/core/widgets/toast/custom_app_toast.dart';
+import 'package:mechanix_files/features/files_explorer/blocs/file_boc.dart';
+import 'package:mechanix_files/features/files_explorer/blocs/file_event.dart';
+import 'package:mechanix_files/features/files_explorer/blocs/file_state.dart';
+import 'package:mechanix_files/features/files_explorer/controllers/file_manager_controller.dart';
+import 'package:mechanix_files/features/files_explorer/data/models/conflict_resolution_strategy.dart';
+import 'package:mechanix_files/features/files_explorer/presentation/commons.dart';
+import 'package:mechanix_files/features/files_explorer/presentation/file_explorer.dart';
+import 'package:mechanix_files/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path/path.dart' as p;
@@ -326,7 +326,8 @@ class PasteHandler {
                             textColor: AppColors.onSurface,
                             borderRadius: 0,
                             onPressed: () {
-                              if (totalMovedCount != null && totalMovedCount! > 0) {
+                              if (totalMovedCount != null &&
+                                  totalMovedCount! > 0) {
                                 totalMovedCount = totalMovedCount! - 1;
                               }
 

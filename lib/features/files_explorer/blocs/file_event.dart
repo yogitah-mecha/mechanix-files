@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:equatable/equatable.dart';
-import 'package:files/features/files_explorer/controllers/file_manager_controller.dart';
-import 'package:files/features/files_explorer/data/models/conflict_resolution_strategy.dart';
+import 'package:mechanix_files/features/files_explorer/controllers/file_manager_controller.dart';
+import 'package:mechanix_files/features/files_explorer/data/models/conflict_resolution_strategy.dart';
 
 abstract class FilesEvent extends Equatable {
   @override

@@ -1,4 +1,4 @@
-import 'package:files/core/theme/app_theme.dart';
+import 'package:mechanix_files/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class CustomCircleCheckbox extends StatelessWidget {

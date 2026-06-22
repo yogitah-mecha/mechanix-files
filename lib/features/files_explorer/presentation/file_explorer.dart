@@ -1,28 +1,28 @@
 import 'dart:async';
 import 'package:ellipsized_text/ellipsized_text.dart';
 import 'package:file/file.dart';
-import 'package:files/core/utils/app_file_system.dart';
-import 'package:files/core/theme/app_theme.dart';
-import 'package:files/core/constants/icons.dart';
-import 'package:files/core/constants/path_constants.dart';
-import 'package:files/core/utils/commons.dart';
-import 'package:files/core/widgets/custom_icon_button.dart';
-import 'package:files/core/widgets/toast/custom_app_toast.dart';
-import 'package:files/features/files_explorer/blocs/file_boc.dart';
-import 'package:files/features/files_explorer/blocs/file_event.dart';
-import 'package:files/features/files_explorer/blocs/file_state.dart';
-import 'package:files/features/files_explorer/controllers/file_manager_controller.dart';
-import 'package:files/features/files_explorer/data/models/conflict_resolution_strategy.dart';
-import 'package:files/features/files_explorer/presentation/bottom_bar_widgets.dart';
-import 'package:files/features/files_explorer/presentation/breadcrumbs.dart';
-import 'package:files/features/files_explorer/presentation/trash_confirmation_dialog.dart';
-import 'package:files/features/files_explorer/presentation/list_view.dart';
-import 'package:files/features/files_explorer/presentation/paste_handler.dart';
-import 'package:files/features/files_explorer/presentation/search_dialog.dart';
-import 'package:files/features/files_home/data/models/file_item.dart';
-import 'package:files/features/trash/bloc/trash_bloc.dart';
-import 'package:files/features/trash/bloc/trash_event.dart';
-import 'package:files/l10n/app_localizations.dart';
+import 'package:mechanix_files/core/utils/app_file_system.dart';
+import 'package:mechanix_files/core/theme/app_theme.dart';
+import 'package:mechanix_files/core/constants/icons.dart';
+import 'package:mechanix_files/core/constants/path_constants.dart';
+import 'package:mechanix_files/core/utils/commons.dart';
+import 'package:mechanix_files/core/widgets/custom_icon_button.dart';
+import 'package:mechanix_files/core/widgets/toast/custom_app_toast.dart';
+import 'package:mechanix_files/features/files_explorer/blocs/file_boc.dart';
+import 'package:mechanix_files/features/files_explorer/blocs/file_event.dart';
+import 'package:mechanix_files/features/files_explorer/blocs/file_state.dart';
+import 'package:mechanix_files/features/files_explorer/controllers/file_manager_controller.dart';
+import 'package:mechanix_files/features/files_explorer/data/models/conflict_resolution_strategy.dart';
+import 'package:mechanix_files/features/files_explorer/presentation/bottom_bar_widgets.dart';
+import 'package:mechanix_files/features/files_explorer/presentation/breadcrumbs.dart';
+import 'package:mechanix_files/features/files_explorer/presentation/trash_confirmation_dialog.dart';
+import 'package:mechanix_files/features/files_explorer/presentation/list_view.dart';
+import 'package:mechanix_files/features/files_explorer/presentation/paste_handler.dart';
+import 'package:mechanix_files/features/files_explorer/presentation/search_dialog.dart';
+import 'package:mechanix_files/features/files_home/data/models/file_item.dart';
+import 'package:mechanix_files/features/trash/bloc/trash_bloc.dart';
+import 'package:mechanix_files/features/trash/bloc/trash_event.dart';
+import 'package:mechanix_files/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path/path.dart' as p;
@@ -108,7 +108,9 @@ class FileExplorerPageState extends State<FileExplorerPage> {
       _scrollPositions[oldPath] = _scrollController.offset;
     }
 
-    _scrollPositions.removeWhere((savedPath, _) => p.isWithin(newPath, savedPath));
+    _scrollPositions.removeWhere(
+      (savedPath, _) => p.isWithin(newPath, savedPath),
+    );
 
     setState(() {
       currentPath = newPath;

@@ -2,9 +2,9 @@ library file_manager;
 
 import 'dart:io' as io;
 import 'package:file/file.dart';
-import 'package:files/core/utils/app_file_system.dart';
+import 'package:mechanix_files/core/utils/app_file_system.dart';
 import 'dart:math' as math;
-import 'package:files/features/files_explorer/controllers/file_manager_controller.dart';
+import 'package:mechanix_files/features/files_explorer/controllers/file_manager_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -231,7 +231,8 @@ class _FileManagerState extends State<FileManager> {
   }
 
   Future<List<FileSystemEntity>> entityList(String path, SortBy sortBy) async {
-    List<FileSystemEntity> entitys = await AppFileSystem.instance.directory(path).list().toList();
+    List<FileSystemEntity> entitys =
+        await AppFileSystem.instance.directory(path).list().toList();
     switch (sortBy) {
       case SortBy.name:
         return entitys.sortByName;
