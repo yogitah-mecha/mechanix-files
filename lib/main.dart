@@ -24,6 +24,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 
 import 'package:mechanix_files/core/utils/app_file_system.dart';
+import 'package:show_fps/show_fps.dart';
 
 void main() {
   final openPath = _parseOpenPath();
@@ -85,8 +86,20 @@ class FilesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final showFps = Platform.environment['SHOW_FPS'] == 'true';
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      builder:
+          showFps
+              ? (context, child) {
+                return ShowFPS(
+                  visible: showFps,
+                  showChart: false,
+                  child: child!,
+                );
+              }
+              : null,
       theme: AppTheme.darkTheme,
       home: buildFileExplorerPage(context, openPath),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
