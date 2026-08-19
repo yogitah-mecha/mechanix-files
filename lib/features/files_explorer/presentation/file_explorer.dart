@@ -138,32 +138,51 @@ class FileExplorerPageState extends State<FileExplorerPage> {
       showHidden: context.read<FilesBloc>().state.showHiddenFiles,
     );
 
-    // 1. Always start from home first
-    await controller.openDirectory(AppFileSystem.instance.directory(homeDir));
-    if (!mounted) return;
-
     final initialPath = widget.startPath;
-    if (initialPath == null) return;
+
+    // No external path: open Home normally.
+    if (initialPath == null || initialPath.isEmpty) {
+      await controller.openDirectory(AppFileSystem.instance.directory(homeDir));
+      return;
+    }
 
     final type = AppFileSystem.instance.typeSync(initialPath);
 
     if (type == FileSystemEntityType.file) {
       final file = AppFileSystem.instance.file(initialPath);
 
-      // 2. Open parent directory
+      // Open the parent directory directly.
       await controller.openDirectory(file.parent);
+
       if (!mounted) return;
 
-      // 3. Open file
+      // Then open the file.
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted) return;
-        handleFileTap(context, file, initialPath, false, this, controller);
+
+        handleFileTap(
+          context,
+          file,
+          initialPath,
+          false,
+          this,
+          controller,
+          disableTransition: true,
+        );
       });
-    } else {
+
+      return;
+    }
+
+    if (type == FileSystemEntityType.directory) {
       await controller.openDirectory(
         AppFileSystem.instance.directory(initialPath),
       );
+      return;
     }
+
+    // Invalid/non-existing path: fall back to Home.
+    await controller.openDirectory(AppFileSystem.instance.directory(homeDir));
   }
 
   void _openKeyboardAfterLoad() {

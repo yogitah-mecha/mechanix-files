@@ -29,14 +29,49 @@ double textWidth(String text, TextStyle style) {
   return painter.width;
 }
 
+Route<T> createRoute<T>({
+  required Widget child,
+  bool disableTransition = false,
+}) {
+  if (disableTransition) {
+    // Used only for paths provided through MECHANIX_FILES_OPEN_PATH,
+    // so the requested path opens directly without the normal
+    // navigation transition.
+    return PageRouteBuilder<T>(
+      pageBuilder: (context, animation, secondaryAnimation) => child,
+      transitionDuration: Duration.zero,
+      reverseTransitionDuration: const Duration(milliseconds: 300),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(1.0, 0.0),
+            end: Offset.zero,
+          ).animate(
+            CurvedAnimation(
+              parent: animation,
+              curve: Curves.easeOut,
+              reverseCurve: Curves.easeIn,
+            ),
+          ),
+          child: child,
+        );
+      },
+    );
+  }
+
+  // Use the default page transition for normal navigation.
+  return MaterialPageRoute<T>(builder: (_) => child);
+}
+
 void handleFileTap(
   BuildContext context,
   io.FileSystemEntity file,
   String fullPath,
   bool isSelectionMode,
   FileExplorerPageState? state,
-  FileManagerController controller,
-) {
+  FileManagerController controller, {
+  bool disableTransition = false,
+}) {
   final fileType = p.extension(fullPath).toLowerCase();
 
   if (isSelectionMode) {
@@ -70,13 +105,13 @@ void handleFileTap(
   if (isText) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder:
-            (_) => CodePreview(
-              rootContext: context,
-              filePath: fullPath,
-              state: state,
-            ),
+      createRoute(
+        child: CodePreview(
+          rootContext: context,
+          filePath: fullPath,
+          state: state,
+        ),
+        disableTransition: disableTransition,
       ),
     );
     return;
@@ -85,8 +120,9 @@ void handleFileTap(
   if (isAudio) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (_) => AudioPreview(filePath: fullPath, state: state),
+      createRoute(
+        child: AudioPreview(filePath: fullPath, state: state),
+        disableTransition: disableTransition,
       ),
     );
     return;
@@ -95,13 +131,13 @@ void handleFileTap(
   if (isVideo) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder:
-            (_) => VideoPreview(
-              filePath: fullPath,
-              rootContext: context,
-              state: state,
-            ),
+      createRoute(
+        child: VideoPreview(
+          filePath: fullPath,
+          rootContext: context,
+          state: state,
+        ),
+        disableTransition: disableTransition,
       ),
     );
     return;
@@ -110,13 +146,13 @@ void handleFileTap(
   if (isPdf) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder:
-            (_) => PdfPreview(
-              rootContext: context,
-              filePath: fullPath,
-              state: state,
-            ),
+      createRoute(
+        child: PdfPreview(
+          rootContext: context,
+          filePath: fullPath,
+          state: state,
+        ),
+        disableTransition: disableTransition,
       ),
     );
     return;
@@ -125,13 +161,13 @@ void handleFileTap(
   if (isDocx) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder:
-            (_) => DocxPreview(
-              rootContext: context,
-              filePath: fullPath,
-              state: state,
-            ),
+      createRoute(
+        child: DocxPreview(
+          rootContext: context,
+          filePath: fullPath,
+          state: state,
+        ),
+        disableTransition: disableTransition,
       ),
     );
     return;
@@ -140,8 +176,9 @@ void handleFileTap(
   if (isImage) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (_) => ImagePreview(imagePath: fullPath, state: state),
+      createRoute(
+        child: ImagePreview(imagePath: fullPath, state: state),
+        disableTransition: disableTransition,
       ),
     );
     return;

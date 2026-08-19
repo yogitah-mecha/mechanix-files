@@ -7,6 +7,7 @@ import 'package:mechanix_files/features/files_explorer/blocs/file_boc.dart';
 import 'package:mechanix_files/features/files_explorer/blocs/file_state.dart';
 import 'package:mechanix_files/features/files_explorer/controllers/file_manager_controller.dart';
 import 'package:mechanix_files/features/files_explorer/presentation/file_explorer.dart';
+import 'package:mechanix_files/features/files_explorer/presentation/commons.dart';
 import 'package:mechanix_files/features/files_explorer/presentation/paste_menu.dart';
 import 'package:mechanix_files/features/files_home/data/models/file_item.dart';
 import 'package:mechanix_files/features/files_home/presentation/bottom_bar_widgets.dart';
@@ -46,12 +47,12 @@ class FileHomePageState extends State<FileHomePage> {
 
       Navigator.push(
         context,
-        MaterialPageRoute(
-          builder:
-              (_) => FileExplorerPage(
-                startPath: "/${widget.path.map((e) => e.name).join("/")}",
-                path: widget.path,
-              ),
+        createRoute(
+          child: FileExplorerPage(
+            startPath: "/${widget.path.map((e) => e.name).join("/")}",
+            path: widget.path,
+          ),
+          disableTransition: true,
         ),
       );
     });
